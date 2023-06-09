@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>투표하기</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+<!--문법이 틀려서 연결이 안됐음. html 연결이 되지 않아,폼 자체를 띄우지 않음 결국, html -->
+<!--<form action="{% url 'vote_poll'% topic.id }" method="post"></form>-->
+<form action=    "{% url 'vote_poll' topic.id %}" method="post">
+    {% csrf_token %}
+    <!-- 이 녀석의 문제 였어??? forms. 이렇게 적어놔서???? 아 쓰바씨바 ㅋㅋㅋㅋ -->
+    <!--{{ forms.as_p }}-->
+    {{ form.as_p }}
+    <input type="submit" value="투표">
+</form>
+</body>
+</html>
+
+
+

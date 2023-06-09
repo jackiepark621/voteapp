@@ -1,0 +1,23 @@
+body{
+    padding : 20px;
+    margin : 0;
+}
+
+button {
+    border 1px solid #000;
+    background-color: #cbcbff;
+    padding: 10px;
+    cursor: pointer;
+    margin: 2px;
+}
+
+a {
+    float: right;
+}
+
+article{
+    margin: 20px;
+    padding: 10px;
+    border: 10px solid #000;
+    height: 40px;
+}

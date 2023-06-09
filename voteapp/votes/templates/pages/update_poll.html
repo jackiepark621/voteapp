@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>투표주제 수정하기</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <form action="{% url 'update_poll' topic.id %}" method="post">
+        {% csrf_token %}
+        <!--
+        {{ form.as_p }}
+        갑자기 다운로드???ㅎㅎ
+        -->
+        {{ update_form.as_p }}
+        <input type="submit" value="수정">
+    </form>
+</body>
+</html>
+
+
+

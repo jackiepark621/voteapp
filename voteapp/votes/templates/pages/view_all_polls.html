@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>익명 투표 사이트 </title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+    <a href="{% url 'create_poll' %}"><button>새 푸표 주제</button></a>
+    <h1>모든 투표 주제</h1>
+    <!--Article tag 묶음이 반복되는 것-->
+    <!---->
+    <!--템플릿에서 값을 출력할 때에는 중괄호 2개 사용-->
+    <!--템플릿에서 명령할 때에는 %를 사용-->
+    <!--for문 사용시 context data = List 형태 필요 -->
+
+    {% if topics %}
+        {% for item in topics %}
+        <article>
+            <!--기존 코드, 모델에서 Topic.title로 선언했기 때문에 title로 수정 핑요
+            <div>{{ item.topic }}</div>
+            -->
+            <div>{{ item.title }}</div>
+            <div><a href="{% url 'view_poll_by_id' item.id %}">상세보기</a></div>
+
+        </article>
+        {% endfor %}
+    {% else %}
+        <div>투표 주제가 없습니다.</div>
+    {% endif %}
+</body>
+</html>
+
